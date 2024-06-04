@@ -20,10 +20,9 @@ In this example, let's assume we have two different classes that represent IMUs 
 APIs.
 """
 
-from typing import Protocol
-from random import randint, random
-from math import sqrt
 from abc import abstractmethod
+from random import randint, random
+from typing import Protocol
 
 
 class LSBImu(Protocol):

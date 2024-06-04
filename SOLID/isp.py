@@ -1,5 +1,5 @@
-from typing import Protocol
 from abc import abstractmethod
+from typing import Protocol
 
 """
 Here the Vehicle interface is too broad. It forces methods on the child which might not always be relevant of make 

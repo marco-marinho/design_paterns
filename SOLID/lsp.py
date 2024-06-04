@@ -1,5 +1,5 @@
-from typing import Protocol, Iterable
 from abc import abstractmethod
+from typing import Protocol
 
 """
 The principle states that a derived subclass should be usable anywhere where the superclass\\interface could be used. 

@@ -1,5 +1,5 @@
-from typing import Protocol, List
 from abc import abstractmethod
+from typing import Protocol, List
 
 """
 The Dependency Inversion Principle states that a high level module should depend on interfaces as opposed to concrete

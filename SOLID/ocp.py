@@ -2,9 +2,9 @@
 Open closed principle.
 """
 
-from enum import IntEnum, auto
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
+from enum import IntEnum, auto
 
 
 class Manufacturer(IntEnum):

@@ -20,9 +20,8 @@ In this example, we use a BLE controller and BLE backend abstractions to illustr
 hierarchies can be split to allow their development to be done independently.
 """
 
-from typing import Protocol, Callable
 from abc import abstractmethod
-from functools import partial
+from typing import Protocol
 
 
 class BLEController(Protocol):

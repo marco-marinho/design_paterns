@@ -16,8 +16,8 @@ Key Points:
 https://refactoring.guru/design-patterns/composite
 """
 
-from typing import Protocol, Callable
 from abc import abstractmethod
+from typing import Protocol
 
 
 class Node(Protocol):
