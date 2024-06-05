@@ -84,3 +84,9 @@ if __name__ == "__main__":
 
     print(enc_writer.read())
     enc_writer.write("Hello")
+
+    print("\n")
+
+    chain_writer = EncryptionDecorator(comp_writer)
+    print(chain_writer.read())
+    chain_writer.write("Hello")
