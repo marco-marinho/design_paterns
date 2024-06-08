@@ -17,8 +17,9 @@ Key Points:
 https://blogs.perl.org/users/jeffrey_kegler/2013/03/the-interpreter-design-pattern.html
 """
 
-import regex as re
 from enum import Enum, auto
+
+import regex as re
 
 lpar = re.compile(r'^\(')
 rpar = re.compile(r'^\)')

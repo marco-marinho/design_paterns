@@ -18,6 +18,7 @@ https://refactoring.guru/design-patterns/chain-of-responsibility
 """
 
 from __future__ import annotations
+
 from abc import ABC, abstractmethod
 from copy import copy
 from typing import List, Callable

@@ -17,7 +17,6 @@ https://refactoring.guru/design-patterns/command
 """
 
 from abc import ABC, abstractmethod
-from enum import Enum
 
 
 class BankAccount:

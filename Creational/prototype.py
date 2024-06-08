@@ -1,7 +1,5 @@
-from typing import Protocol, Optional, Self
-from abc import abstractmethod
-
-from copy import copy, deepcopy
+from copy import deepcopy
+from typing import Optional, Self
 
 """
 The prototype pattern uses an instance of a certain object as the template from which other similar objects are built.

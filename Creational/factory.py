@@ -1,5 +1,5 @@
-from typing import Protocol
 from abc import abstractmethod
+from typing import Protocol
 
 """
 The factory pattern takes out the responsibility of instantiating a object from the class to a Factory class.
