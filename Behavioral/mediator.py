@@ -47,25 +47,23 @@ class Server:
                 del self.connections[username]
                 del self.data[username]
                 return
-            self.data[username].append(data)
+            await self.data[username].put(data)
 
-    async def handle_transmissions(self, username, writer):
+    async def handle_transmissions(self, username, writer: asyncio.StreamWriter):
         while True:
             if username not in self.data:
                 return
-            if len(self.data[username]) > 0:
-                data = self.data[username].pop()
-                writer.write(data)
-                await writer.drain()
-                print(f"Server sent {data}")
-            await asyncio.sleep(1)
+            data = await self.data[username].get()
+            writer.write(data)
+            await writer.drain()
+            print(f"Server sent {data}")
 
     async def _serve(self, reader: asyncio.StreamReader, writer: asyncio.StreamWriter):
         writer.write("Welcome to the chat room\n".encode("utf-8"))
         username = await reader.readline()
         print(f"Username: {username}")
         if username is not None:
-            self.data[username] = []
+            self.data[username] = asyncio.Queue()
             reception_task = self.loop.create_task(self.handle_receptions(username, reader))
             transmission_task = self.loop.create_task(self.handle_transmissions(username, writer))
             self.connections[username] = (reader, writer, reception_task, transmission_task)
@@ -74,10 +72,7 @@ class Server:
 
 if __name__ == "__main__":
     server = Server()
-    # asyncio.run(send_client())
-    # create an INET, STREAMing socket
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # now connect to the web server on port 80 - the normal http port
     s.connect(("localhost", 8686))
     sent = s.send("Marco\n".encode())
     rcv = s.recv(1024)
